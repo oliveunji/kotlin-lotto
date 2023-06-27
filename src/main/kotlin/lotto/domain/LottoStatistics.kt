@@ -1,12 +1,6 @@
 package lotto.domain
 
 object LottoStatistics {
-    private fun countMatchingNumbers(lastWinningNumber: List<Int>, lottoNumber: List<Int>): Int {
-        val set1 = lastWinningNumber.toSet()
-        val set2 = lottoNumber.toSet()
-        return set1.intersect(set2).size
-    }
-
     fun getLottoWinnerList(lastWinningNumber: List<Int>, lottoNumberArray: List<List<Int>>): MutableMap<Int, Int> {
         val resultMap = mutableMapOf(
             3 to 0,
@@ -21,6 +15,12 @@ object LottoStatistics {
             }
         }
         return resultMap
+    }
+
+    private fun countMatchingNumbers(lastWinningNumber: List<Int>, lottoNumber: List<Int>): Int {
+        val set1 = lastWinningNumber.toSet()
+        val set2 = lottoNumber.toSet()
+        return set1.intersect(set2).size
     }
 
     fun getRateOfReturn(lottoResult: Map<Int, Int>, amount: Int): Float {

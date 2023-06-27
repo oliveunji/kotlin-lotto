@@ -10,13 +10,13 @@ object LottoShop {
         return amount / UNIT
     }
 
+    fun getLottoNumbers(count: Int): List<List<Int>> {
+        return List(count) { generateLottoNumbers() }
+    }
+
     private fun generateLottoNumbers(): List<Int> {
         val allNumbers = (1..45).toList()
         val lottoNumbers = allNumbers.shuffled().subList(0, 6)
         return lottoNumbers.sorted()
-    }
-
-    fun getLottoNumbers(count: Int): List<List<Int>> {
-        return List(count) { generateLottoNumbers() }
     }
 }
