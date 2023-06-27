@@ -24,7 +24,7 @@ object LottoStatistics {
     }
 
     fun getRateOfReturn(lottoResult: Map<Int, Int>, amount: Int): Float {
-        val totalGainAmount = lottoResult.map { lotto -> LottoEnum.of(lotto.key) * lotto.value }.sum()
+        val totalGainAmount = lottoResult.map { lotto -> LottoPrizeAmount.of(lotto.key) * lotto.value }.sum()
         return totalGainAmount.toFloat() / amount
     }
 }

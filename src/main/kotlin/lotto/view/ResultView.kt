@@ -1,6 +1,6 @@
 package lotto.view
 
-import lotto.domain.LottoEnum
+import lotto.domain.LottoPrizeAmount
 
 object ResultView {
     fun printPurchaseResult(lottoNumbers: List<List<Int>>) {
@@ -17,7 +17,7 @@ object ResultView {
 
     fun printWinningResultStatistics(mapResult: Map<Int, Int>) {
         mapResult.forEach {
-            println("${it.key}개 일치 (${LottoEnum.of(it.key)}원)- ${it.value}개")
+            println("${it.key}개 일치 (${LottoPrizeAmount.of(it.key)}원)- ${it.value}개")
         }
     }
 
