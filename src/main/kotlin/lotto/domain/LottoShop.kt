@@ -1,17 +1,13 @@
 package lotto.domain
 
-private const val UNIT = 1000
-
 object LottoShop {
-    fun getNumberOfPurchase(amount: Int): Int {
-        require(amount % UNIT == 0) {
-            throw RuntimeException("$UNIT 단위로 입력해주세요.")
-        }
-        return amount / UNIT
+    fun getLottoNumbers(amount: Money): List<List<Int>> {
+        val count = getNumberOfPurchase(amount)
+        return List(count) { generateLottoNumbers() }
     }
 
-    fun getLottoNumbers(count: Int): List<List<Int>> {
-        return List(count) { generateLottoNumbers() }
+    private fun getNumberOfPurchase(amount: Money): Int {
+        return amount / Money.UNIT
     }
 
     private fun generateLottoNumbers(): List<Int> {
