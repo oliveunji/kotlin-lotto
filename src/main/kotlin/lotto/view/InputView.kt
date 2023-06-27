@@ -1,7 +1,5 @@
 package lotto.view
 
-private const val UNIT = 1000
-
 object InputView {
     fun getPurchaseAmount(): Int {
         println("구입금액을 입력해 주세요.")
