@@ -1,7 +1,7 @@
 package lotto.domain
 
 object LottoShop {
-    fun getLottoNumbers(amount: Money): List<List<Int>> {
+    fun getLottoNumbers(amount: Money): List<LottoNumbers> {
         val count = getNumberOfPurchase(amount)
         return List(count) { generateLottoNumbers() }
     }
@@ -10,9 +10,9 @@ object LottoShop {
         return amount / Money.UNIT
     }
 
-    private fun generateLottoNumbers(): List<Int> {
-        val allNumbers = (1..45).toList()
-        val lottoNumbers = allNumbers.shuffled().subList(0, 6)
-        return lottoNumbers.sorted()
+    private fun generateLottoNumbers(): LottoNumbers {
+        val lottoNumbers = (1..45).shuffled().take(6).sorted()
+        val lottoNumbersSet = lottoNumbers.map { LottoNumber.of(it) }.toSet()
+        return LottoNumbers.of(lottoNumbersSet)
     }
 }
