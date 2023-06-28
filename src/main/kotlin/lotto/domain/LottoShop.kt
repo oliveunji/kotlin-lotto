@@ -1,5 +1,5 @@
 package lotto.domain
-
+private const val LOTTO_NUMBERS_COUNT = 6
 object LottoShop {
     fun getLottoNumbers(amount: Money): List<LottoNumbers> {
         val count = getNumberOfPurchase(amount)
@@ -11,7 +11,7 @@ object LottoShop {
     }
 
     private fun generateLottoNumbers(): LottoNumbers {
-        val lottoNumbers = (1..45).shuffled().take(6).sorted()
+        val lottoNumbers = RandomNumbersGenerator().values().take(LOTTO_NUMBERS_COUNT).sorted()
         val lottoNumbersSet = lottoNumbers.map { LottoNumber.of(it) }.toSet()
         return LottoNumbers.of(lottoNumbersSet)
     }
