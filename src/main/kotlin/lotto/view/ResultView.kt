@@ -1,12 +1,13 @@
 package lotto.view
 
+import lotto.domain.LottoNumbers
 import lotto.domain.LottoPrizeUnit
 
 object ResultView {
-    fun printPurchaseResult(lottoNumbers: List<List<Int>>) {
+    fun printPurchaseResult(lottoNumbers: List<LottoNumbers>) {
         println("${lottoNumbers.count()}개를 구매했습니다.")
         lottoNumbers.forEach { lotto ->
-            println(lotto)
+            println(lotto.numbers)
         }
     }
 
